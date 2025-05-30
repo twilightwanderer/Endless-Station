@@ -1,0 +1,22 @@
+name: Auto Delete Branch
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete-head-branch:
+    # Условие: PR из того же репо и он действительно вмерджен (merged === true)
+    if: >
+      github.event.pull_request.head.repo.full_name == github.repository
+      && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup GitHub CLI
+        run: sudo apt-get install -y gh
+      - name: Delete branch via CLI
+        run: |
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh api repos/${{ github.repository }}/git/refs/heads/${{ github.event.pull_request.head.ref }} \
+            -X DELETE
