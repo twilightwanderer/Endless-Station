@@ -1,17 +1,17 @@
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull request process. -->
+<!-- Пишите **ВНИЗУ** заголовков и **ВЫШЕ** комментариев, иначе они могут быть не видны. -->
+<!-- Вы можете просмотреть Contributing.MD для подробного описания процесса подачи запросов. -->
 
-## About The Pull Request
+## Описание Pull Request
 
-<!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
+<!-- Опишите Pull Request. Пожалуйста, убедитесь, что каждое изменение задокументировано, иначе это может затянуть рассмотрение и даже оттолкнуть сопровождающих от слияния вашего PR! -->
 
-## Why It's Good For The Game
+## Почему это полезно для игры
 
-<!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
+<!-- Аргументируйте достоинства ваших изменений и их пользу для игры, особенно если они спорные и/или далеко идущие. Если вы не можете объяснить, ПОЧЕМУ то, что вы делаете, улучшит игру, то, скорее всего, это вообще не полезно для игры. -->
 
-## Changelog
+## Изменения
 
-<!-- If your PR modifies aspects of the game that can be concretely observed by players or admins you should add a changelog. If your change does NOT meet this description, remove this section. Be sure to properly mark your PRs to prevent unnecessary GBP loss. You can read up on GBP and its effects on PRs in the tgstation guides for contributors. Please note that maintainers freely reserve the right to remove and add tags should they deem it appropriate. You can attempt to finagle the system all you want, but it's best to shoot for clear communication right off the bat. -->
+<!-- Если ваш PR изменяет аспекты игры, которые могут быть конкретно замечены игроками или администраторами, вы должны добавить журнал изменений. Если ваше изменение НЕ соответствует этому описанию, удалите этот раздел. Убедитесь, что вы правильно пометили свои PR, чтобы избежать ненужных потерь GBP. Вы можете прочитать о GBP и его влиянии на PR в руководстве tgstation для авторов. Обратите внимание, что сопровождающие оставляют за собой право удалять и добавлять метки, если сочтут это нужным. Вы можете сколько угодно пытаться обмануть систему, но лучше всего сразу стремиться к ясной коммуникации. -->
 
 :cl:
 add: Added new mechanics or gameplay changes
@@ -31,5 +31,5 @@ admin: messed with admin stuff
 server: something server ops should know
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! You can put your name to the right of the first :cl: if you want to overwrite your GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the icon ingame) and delete the unneeded ones. Despite some of the tags, changelogs should generally represent how a player might be affected by the changes rather than a summary of the PR's contents. -->
+<!-- Оба :cl: необходимы для работы журнала изменений! Вы можете поставить своё имя справа от первого :cl:, если хотите заменить своё имя пользователя GitHub на имя автора в игре. -->
+<!-- Вы можете использовать несколько одинаковых префиксов (они используются только для иконки в игре) и удалять ненужные. Несмотря на некоторые теги, блоги изменений, как правило, должны представлять, как изменения могут повлиять на игрока, а не кратко описывать содержание PR. -->
