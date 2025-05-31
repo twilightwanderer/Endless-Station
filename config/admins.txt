@@ -1,7 +1,7 @@
-#List users here to be made admins with the format: ckey = rank name.
-#Ckey will be converted to ckey format, lowercase with no punctuation except '@'.
-#Rank name will match anything after ' = ' and has not format requirements.
-#Ranks will match to those with the same name in admin_ranks.txt, if a match isn't found the user won't be adminned.
-#If SQL-based admin loading is enabled, admins listed here will always be loaded first and will override any duplicate entries in the database.
+#Список пользователей, которых нужно сделать админами в формате: ckey = имя ранга.
+#Ckey будет преобразован в формат ckey, в нижнем регистре без знаков препинания, кроме '@'.
+#Имя ранга будет соответствовать всему, что находится после ' = ' и не имеет требований к формату.
+#Ранги будут совпадать с одноименными в файле admin_ranks.txt, если совпадение не найдено, пользователь не будет администрирован.
+#Если включена загрузка админов на основе SQL, админы, перечисленные здесь, всегда будут загружаться первыми и будут перекрывать любые дублирующиеся записи в базе данных.
 
 Twilightwanderer100 = Host
