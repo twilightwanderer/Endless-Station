@@ -1,4 +1,4 @@
-<!-- Most valid html will work in here, but you have to use URL links for images. -->
+<!-- Сюда подойдет любой правильный html, но для изображений нужно использовать URL-ссылки. -->
 
 <h1>Welcome to Space Station 13!</h1>
 

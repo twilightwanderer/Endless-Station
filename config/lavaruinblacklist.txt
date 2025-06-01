@@ -1,7 +1,7 @@
-#Listing maps here will blacklist them from generating in lavaland.
-#Maps must be the full path to them
-#A list of maps valid to blacklist can be found in _maps\RandomRuins\LavaRuins
-#SPECIFYING AN INVALID MAP WILL RESULT IN RUNTIMES ON GAME START
+#Перечисление карт здесь приведет к тому, что они не будут генерироваться в Лаваланде.
+#Карты должны иметь полный путь к ним.
+#Список карт, допустимых для внесения в черный список, можно найти в _maps\RandomRuins\LavaRuins
+#УКАЗАНИЕ НЕДЕЙСТВИТЕЛЬНОЙ КАРТЫ ПРИВЕДЕТ К ВЫЛЕТАМ ПРИ ЗАПУСКЕ ИГРЫ
 
 ##BIODOMES
 #_maps/RandomRuins/LavaRuins/lavaland_surface_biodome_winter.dmm
