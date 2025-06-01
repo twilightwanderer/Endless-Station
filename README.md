@@ -1,6 +1,6 @@
 # Endless Station - Fork [/tg/station](https://github.com/tgstation/tgstation)
 
-[![Endless Station](.github/images/logo/Enless Station.png)]
+<img src="https://github.com/Endless-Station/Endless-Station/blob/master/.github/images/logo/Enless%20Station.png" alt="Endless Station" style="width: 400px;">
 
 [![Build Status](https://github.com/Endless-Station/Endless-Station/workflows/CI%20Suite/badge.svg)](https://github.com/Endless-Station/Endless-Station/actions?query=workflow%3A%22CI+Suite%22)
 [![Percentage of issues still open](https://isitmaintained.com/badge/open/tgstation/tgstation.svg)](https://isitmaintained.com/project/tgstation/tgstation "Percentage of issues still open")
