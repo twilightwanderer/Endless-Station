@@ -3099,7 +3099,7 @@
 #include "code\modules\admin\verbs\list_exposer.dm"
 #include "code\modules\admin\verbs\machine_upgrade.dm"
 #include "code\modules\admin\verbs\manipulate_organs.dm"
-#include "code\modules\admin\verbs\map_export.dm"
+// #include "code\modules\admin\verbs\map_export.dm" ENDLESS_STATION_OVERLOAD
 #include "code\modules\admin\verbs\map_template_loadverb.dm"
 #include "code\modules\admin\verbs\mapping.dm"
 #include "code\modules\admin\verbs\maprotation.dm"
@@ -3629,7 +3629,7 @@
 #include "code\modules\atmospherics\machinery\pipes\mapping.dm"
 #include "code\modules\atmospherics\machinery\pipes\multiz.dm"
 #include "code\modules\atmospherics\machinery\pipes\pipe_spritesheet_helper.dm"
-#include "code\modules\atmospherics\machinery\pipes\pipes.dm"
+// #include "code\modules\atmospherics\machinery\pipes\pipes.dm" ENDLESS_STATION_OVERLOAD
 #include "code\modules\atmospherics\machinery\pipes\smart.dm"
 #include "code\modules\atmospherics\machinery\pipes\heat_exchange\he_pipes.dm"
 #include "code\modules\atmospherics\machinery\pipes\heat_exchange\junction.dm"
@@ -6669,3 +6669,8 @@
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
 // END_INCLUDE
+
+// BEGIN_INCLUDE ENLESS STATION OVERLOAD
+#include "_endless_station_codebase\overload\modules\admin\verbs\map_export.dm"
+#include "_endless_station_codebase\overload\modules\atmospherics\pipes\pipes.dm"
+// END_INCLUDE ENLESS STATION CODEBASE
