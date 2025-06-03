@@ -1,4 +1,4 @@
-//ENDLESS_STATION_OVERLOAD
+// ∞∞∞ ENDLESS_STATION_OVERLOAD
 //Original code: code\modules\atmospherics\machinery\pipes\pipes.dm
 /obj/machinery/atmospherics/pipe
 	icon = 'icons/obj/pipes_n_cables/!pipes_bitmask.dmi'
@@ -6,7 +6,9 @@
 	/// Temporary holder for gases in the absence of a pipeline
 	var/datum/gas_mixture/air_temporary
 
+	// ∞∞∞ ENDLESS ADD BEGINE
 	var/initial_gas = null
+	// ∞∞∞ ENDLESS ADD END
 
 	/// The gas capacity this pipe contributes to a pipeline
 	var/volume = 0
@@ -31,6 +33,8 @@
 	if (!volume) // Pipes can have specific volumes or have it determined by their device_type.
 		volume = UNARY_PIPE_VOLUME * device_type
 	. = ..()
+
+	// ∞∞∞ ENDLESS ADD BEGINE
 	if(initial_gas)
 		// Если труба не в сети, используем air_temporary
 		if(!parent)
@@ -40,6 +44,7 @@
 			// если уже есть родительская сеть, добавим в неё
 			var/datum/gas_mixture/new_mix = SSair.parse_gas_string(text)
 			parent.air.merge(new_mix)
+	// ∞∞∞ ENDLESS ADD END
 
 /obj/machinery/atmospherics/pipe/proc/set_volume(new_volume)
 	if(volume == new_volume)

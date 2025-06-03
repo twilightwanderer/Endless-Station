@@ -1,4 +1,4 @@
-//ENDLESS_STATION_OVERLOAD
+// ∞∞∞ ENDLESS_STATION_OVERLOAD
 //Original code: code\modules\admin\verbs\map_export.dm
 ADMIN_VERB(map_export, R_DEBUG, "Debug Map Export", "Select a part of the map by coordinates and download it.", ADMIN_CATEGORY_DEBUG)
 	var/user_x = user.mob.x
@@ -158,11 +158,12 @@ ADMIN_VERB(map_export_server, R_SERVER, "Map Export", "Select a part of the map 
 	. += NAMEOF(src, piping_layer)
 	. += NAMEOF(src, pipe_color)
 	if (src.parent)
-		src.parent.temporarily_store_air()
-	var/datum/gas_mixture/pipe_gas = src.air_temporary ? src.air_temporary : (src.parent && src.parent.air ? src.parent.air : null)
-	if(pipe_gas)
+		var/datum/gas_mixture/pipe_gas = src.parent.get_store_air(src.volume)
 		src.initial_gas = pipe_gas.to_string()
-		. += NAMEOF(src, initial_gas)
+	else
+		var/datum/gas_mixture/pipe_gas = src.air_temporary ? src.air_temporary : (src.parent && src.parent.air ? src.parent.air : null)
+		src.initial_gas = pipe_gas.to_string()
+	. += NAMEOF(src, initial_gas)
 	return .
 
 /obj/machinery/power/apc/get_save_vars()
