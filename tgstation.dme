@@ -685,7 +685,7 @@
 #include "code\controllers\subsystem\lua.dm"
 #include "code\controllers\subsystem\machines.dm"
 #include "code\controllers\subsystem\map_vote.dm"
-#include "code\controllers\subsystem\mapping.dm"
+// #include "code\controllers\subsystem\mapping.dm" ENDLESS_STATION_OVERLOAD
 #include "code\controllers\subsystem\market.dm"
 #include "code\controllers\subsystem\materials.dm"
 #include "code\controllers\subsystem\minor_mapping.dm"
@@ -6671,6 +6671,7 @@
 // END_INCLUDE
 
 // ∞∞∞ BEGIN_INCLUDE ENDLESS STATION OVERLOAD
+#include "_endless_station_codebase\overload\controllers\subsystem\mapping.dm"
 #include "_endless_station_codebase\overload\modules\admin\verbs\map_export.dm"
 #include "_endless_station_codebase\overload\modules\atmospherics\pipes\pipes.dm"
 #include "_endless_station_codebase\overload\modules\atmospherics\machinery\datum_pipeline.dm"
