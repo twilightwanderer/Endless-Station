@@ -61,6 +61,11 @@ map wawastation
 	minplayers 40
 endmap
 
+map spacestation13
+	#votable
+	#minplayers 40
+endmap
+
 # Debug-only maps.
 
 map gateway_test

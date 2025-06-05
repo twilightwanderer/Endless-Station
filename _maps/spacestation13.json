@@ -1,0 +1,43 @@
+{
+	"version": 1,
+	"map_name": "Space Station 13",
+	"map_path": "map_files/spacestation13",
+	"map_file": "spacestation13.dmm",
+	"give_players_hooks": 1,
+	"shuttles": {
+		"cargo": "cargo_box",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"traits": [
+		{
+			"Up": true,
+			"Baseturf": "/turf/open/misc/asteroid/airless",
+			"No Parallax": true,
+			"Linkage": "Cross"
+		},
+		{
+			"Up": true,
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		},
+		{
+			"Down": true,
+			"Baseturf": "/turf/open/openspace",
+			"Linkage": "Cross"
+		}
+	],
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": [
+				"/area/station/service/bar",
+				"/area/station/commons/lounge"
+			]
+		},
+		"Captain": {
+			"special_charter": "asteroid"
+		}
+	}
+}

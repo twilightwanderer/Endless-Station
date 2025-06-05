@@ -1,3 +1,5 @@
+//∞∞∞ ENDLESS EDIT FLAG
+
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
 	dependencies = list(
@@ -91,11 +93,58 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/PreInit()
 	..()
+	to_world("____________________________________________")
+	// ENDLESS ADD BEGIN
+	if (CONFIG_GET(flag/endless_mode))
+		to_world("+++++++++++++++++++++++++++++++++++++++++++")
+		// ENDLESS MODE
+		var/map_dir = "data/"
+		var/list/map_files = flist(map_dir)
+		var/list/valid_maps = list()
+		var/regex = regex(@"^(\d+)\.dmm$")
+
+		var/last_map_num = 0
+		var/last_map_file = null
+
+		for (var/file in map_files)
+			if (regex.Find(file))
+				var/match = regex.group[1]
+				if (isnum(match))
+					var/map_num = text2num(match)
+					if (map_num > last_map_num)
+						last_map_num = map_num
+						last_map_file = "[map_dir][file]"
+
+		if (last_map_file)
+			var/config_path = "_maps/spacestation13.json"
+			if (!fexists(config_path))
+				CRASH("Config file [config_path] not found.")
+
+			var/config_text = file2text(config_path)
+
+			// Заменяем первый путь к .dmm в конфиге
+			var/path_regex = regex(@"\"[^\"]+\.dmm\"")
+			config_text = path_regex.Replace(config_text, "\"[last_map_file]\"", 1)
+
+			var/tmp_cfg = "[map_dir]tmp_map_config.json"
+			text2file(config_text, tmp_cfg)
+
+			current_map = load_map_config("tmp_map_config.json", "/data")
+
+			// Удалить временный файл (по желанию)
+			// fdel(tmp_cfg)
+		else
+			// Фоллбек, если карт не найдено
+			current_map = load_map_config("tramstation")
+// ENDLESS ADD END
+
+/* TG ORIGINAL CODE BEGINE
 #ifdef FORCE_MAP
 	current_map = load_map_config(FORCE_MAP, FORCE_MAP_DIRECTORY)
 #else
 	current_map = load_map_config(error_if_missing = FALSE)
 #endif
+TG ORIGINAL CODE END */
 
 /datum/controller/subsystem/mapping/Initialize()
 	if(initialized)
