@@ -6671,6 +6671,7 @@
 // END_INCLUDE
 
 // ∞∞∞ BEGIN_INCLUDE ENDLESS STATION OVERLOAD
+#include "endless_station_codebase\master_files\controllers\configuration\entries\general.dm"
 #include "endless_station_codebase\master_files\controllers\subsystem\mapping.dm"
 #include "endless_station_codebase\master_files\modules\admin\verbs\map_export.dm"
 #include "endless_station_codebase\master_files\modules\atmospherics\pipes\pipes.dm"

@@ -18,6 +18,10 @@ ADMIN_VERB(map_export_server, R_SERVER, "Map Export", "Select a part of the map 
 	var/map_text = write_map(1, 1, min_z, 255, 255, max_z)
 	send_exported_map(user, file_name, map_text)
 
+/proc/simple_exported_map(name, map)
+	var/file_path = "data/[name].dmm"
+	rustg_file_write(map, file_path)
+
 /obj/machinery/atmospherics/pipe/get_save_vars()
 	. = ..()
 	. += NAMEOF(src, piping_layer)

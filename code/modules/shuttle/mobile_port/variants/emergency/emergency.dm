@@ -1,3 +1,4 @@
+//∞∞∞ ENDLESS EDIT FLAG
 /obj/docking_port/mobile/emergency
 	name = "emergency shuttle"
 	shuttle_id = "emergency"
@@ -234,7 +235,13 @@
 					color_override = "orange",
 				)
 				INVOKE_ASYNC(SSticker, TYPE_PROC_REF(/datum/controller/subsystem/ticker, poll_hearts))
-				INVOKE_ASYNC(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), /datum/vote/map_vote, vote_initiator_name = "Map Rotation", forced = TRUE)
+				// ENDLESS EDIT BEGINE
+				if (!CONFIG_GET(flag/endless_mode))
+					INVOKE_ASYNC(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), /datum/vote/map_vote, vote_initiator_name = "Map Rotation", forced = TRUE)
+				// ENDLESS EDIT END
+				// TG ORIGINAL BEGINE
+				// INVOKE_ASYNC(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), /datum/vote/map_vote, vote_initiator_name = "Map Rotation", forced = TRUE)
+				// TG ORIGINAL END
 
 				if(!is_reserved_level(z))
 					CRASH("Emergency shuttle did not move to transit z-level!")
