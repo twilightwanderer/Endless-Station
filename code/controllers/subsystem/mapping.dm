@@ -93,49 +93,42 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/PreInit()
 	..()
-	to_world("____________________________________________")
 	// ENDLESS ADD BEGIN
-	if (CONFIG_GET(flag/endless_mode))
-		to_world("+++++++++++++++++++++++++++++++++++++++++++")
-		// ENDLESS MODE
-		var/map_dir = "data/"
-		var/list/map_files = flist(map_dir)
-		var/list/valid_maps = list()
-		var/regex = regex(@"^(\d+)\.dmm$")
-
-		var/last_map_num = 0
-		var/last_map_file = null
-
-		for (var/file in map_files)
-			if (regex.Find(file))
-				var/match = regex.group[1]
-				if (isnum(match))
-					var/map_num = text2num(match)
-					if (map_num > last_map_num)
-						last_map_num = map_num
-						last_map_file = "[map_dir][file]"
-
+#ifdef FORCE_MAP
+	current_map = load_map_config(FORCE_MAP, FORCE_MAP_DIRECTORY)
+#else
+	if (is_endless_mode_enabled())
+		var/last_map_file = get_last_map()
 		if (last_map_file)
+			// Читаем стандартный конфиг
 			var/config_path = "_maps/spacestation13.json"
-			if (!fexists(config_path))
-				CRASH("Config file [config_path] not found.")
-
 			var/config_text = file2text(config_path)
-
-			// Заменяем первый путь к .dmm в конфиге
-			var/path_regex = regex(@"\"[^\"]+\.dmm\"")
-			config_text = path_regex.Replace(config_text, "\"[last_map_file]\"", 1)
-
-			var/tmp_cfg = "[map_dir]tmp_map_config.json"
-			text2file(config_text, tmp_cfg)
-
-			current_map = load_map_config("tmp_map_config.json", "/data")
-
-			// Удалить временный файл (по желанию)
-			// fdel(tmp_cfg)
+			if (config_text)
+				// Преобразуем текст в ассоциативный список
+				var/config = json_decode(config_text)
+				// Меняем нужные параметры
+				config["map_path"] = MAP_EXPORT_FOLDER
+				config["map_file"] = last_map_file
+				// Генерируем временное имя файла
+				var/tmp_config_path = "[MAP_EXPORT_FOLDER]/tmp_map_config_[last_map_file].json"
+				// Сохраняем модифицированный конфиг
+				text2file(json_encode(config), tmp_config_path)
+				// Загружаем карту из временного файла
+				current_map = load_map_config("tmp_map_config_[last_map_file]", MAP_EXPORT_FOLDER, error_if_missing = FALSE)
+				return
+				// Удаляем временный файл
+				//fdel(tmp_config_path)
+			else
+				// Если не удалось прочитать конфиг, fallback
+				current_map = load_map_config("spacestation13", error_if_missing = FALSE)
+				return
 		else
-			// Фоллбек, если карт не найдено
-			current_map = load_map_config("tramstation")
+			current_map = load_map_config("spacestation13", error_if_missing = FALSE)
+			return
+	else
+		current_map = load_map_config(error_if_missing = FALSE)
+		return
+#endif
 // ENDLESS ADD END
 
 /* TG ORIGINAL CODE BEGINE

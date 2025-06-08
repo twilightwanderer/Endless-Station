@@ -19,8 +19,44 @@ ADMIN_VERB(map_export_server, R_SERVER, "Map Export", "Select a part of the map 
 	send_exported_map(user, file_name, map_text)
 
 /proc/simple_exported_map(name, map)
-	var/file_path = "data/[name].dmm"
+	var/file_path = "[MAP_EXPORT_FOLDER]/[name].dmm"
 	rustg_file_write(map, file_path)
+
+/proc/get_next_map_index(directory = "[MAP_EXPORT_FOLDER]/")
+	var/list/files = flist(directory)
+	var/max_index = 0
+	if (files)
+		for(var/f in files)
+			if(copytext(f, length(f)-3) == ".dmm")
+				var/numstr = text2num(copytext(f, 1, length(f)-3))
+				if(isnum(numstr))
+					var/name = text2num(numstr)
+					if(name > max_index)
+						max_index = name
+	return max_index + 1
+
+/proc/get_last_map(directory = "[MAP_EXPORT_FOLDER]/")
+	var/list/files = flist(directory)
+	var/max_index = 0
+	var/file = null
+	if (files)
+		for(var/f in files)
+			if(copytext(f, length(f)-3) == ".dmm")
+				var/numstr = text2num(copytext(f, 1, length(f)-3))
+				if(isnum(numstr))
+					var/name = text2num(numstr)
+					if(name > max_index)
+						max_index = name
+						file = f
+	if (file)
+		return file
+	else
+		return null
+
+
+/proc/fl(directory = "[MAP_EXPORT_FOLDER]/")
+	var/list/files = flist(directory)
+	return files
 
 /obj/machinery/atmospherics/pipe/get_save_vars()
 	. = ..()

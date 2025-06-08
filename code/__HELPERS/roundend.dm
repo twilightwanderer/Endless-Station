@@ -305,7 +305,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 			var/min_z = min(station_z_levels)
 			var/max_z = max(station_z_levels)
 			var/map_text = write_map(1, 1, min_z, 255, 255, max_z)
-			simple_exported_map(get_next_map_index(directory = "data/"), map_text)
+			simple_exported_map(get_next_map_index(), map_text)
 	// ENDLESS ADD END
 	if(ready_for_reboot)
 		if(GLOB.station_was_nuked)
@@ -314,20 +314,6 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 			Reboot("Round ended.", "proper completion")
 	else
 		CRASH("Attempted standard reboot without ticker roundend completion")
-
-// ENDLESS ADD BEGINE
-/datum/controller/subsystem/ticker/proc/get_next_map_index(directory = "data/")
-	var/list/files = flist(directory)
-	var/max_index = 0
-	for(var/f in files)
-		if(copytext(f, -4) == ".dmm")
-			var/name = copytext(f, 1, length(f)-4)
-			if(isnum(name))
-				var/idx = text2num(name)
-				if(idx > max_index)
-					max_index = idx
-	return max_index + 1
-// ENDLESS ADD END
 
 //Common part of the report
 /datum/controller/subsystem/ticker/proc/build_roundend_report()

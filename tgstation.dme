@@ -17,6 +17,10 @@
 #define DEBUG
 // END_PREFERENCES
 
+// ∞∞∞ BEGIN_INCLUDE ENDLESS STATION DEFINES
+#include "endless_station_codebase\master_files\__DEFINES\mapping.dm"
+// ∞∞∞ BEGIN_INCLUDE ENDLESS STATION DEFINES
+
 // BEGIN_INCLUDE
 #include "__odlint.dm"
 #include "_maps\_basemap.dm"
@@ -685,7 +689,7 @@
 #include "code\controllers\subsystem\lua.dm"
 #include "code\controllers\subsystem\machines.dm"
 #include "code\controllers\subsystem\map_vote.dm"
-// #include "code\controllers\subsystem\mapping.dm" ENDLESS_STATION_OVERLOAD
+#include "code\controllers\subsystem\mapping.dm"
 #include "code\controllers\subsystem\market.dm"
 #include "code\controllers\subsystem\materials.dm"
 #include "code\controllers\subsystem\minor_mapping.dm"
@@ -6672,7 +6676,6 @@
 
 // ∞∞∞ BEGIN_INCLUDE ENDLESS STATION OVERLOAD
 #include "endless_station_codebase\master_files\controllers\configuration\entries\general.dm"
-#include "endless_station_codebase\master_files\controllers\subsystem\mapping.dm"
 #include "endless_station_codebase\master_files\modules\admin\verbs\map_export.dm"
 #include "endless_station_codebase\master_files\modules\atmospherics\pipes\pipes.dm"
 #include "endless_station_codebase\master_files\modules\atmospherics\machinery\datum_pipeline.dm"
